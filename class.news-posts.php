@@ -16,7 +16,7 @@ $NewsPosts = new News_Posts;
 class News_Posts {
     
     public function __construct() {
-        add_action('init', array($this, 'my_post_type'));
+        add_action( 'init', array($this, 'my_post_type'));
         add_filter( 'post_type_link', array($this, 'my_post_type_link'), 1, 2 );
         add_filter( 'rewrite_rules_array', array($this,'my_rewrite_rules_array') );
         add_action( 'pre_get_posts', array($this, 'add_my_post_types_to_query') );
@@ -83,7 +83,7 @@ class News_Posts {
             'rewrite' => array('slug' => $label . '/tag')
             )
         );
-    flush_rewrite_rules();
+        flush_rewrite_rules();
     }
 
     // パーマリンクに数字を使う
